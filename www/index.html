@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html ng-app="starter">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title></title>
+
+<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<script src="js/jquery.js"></script>
+<link href="lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet">
+<!-- ionic/angularjs js -->
+<script src="lib/ionic/js/ionic.bundle.js"></script>
+<script src="lib/ionic-material/dist/ionic.material.js"></script>
+<!-- cordova script (this will be a 404 during development) -->
+<script src="cordova.js"></script>
+<script src="js/ng-cordova.min.js"></script>
+<!-- your app's js -->
+<script src="js/app.js"></script>
+
+
+
+
+</head>
+<body ng-controller="ExampleController">
+
+
+
+
+<div class="bar bar-header bar-ligth" >
+  <div class="title" ng-click="logueofacebook()" style="display:inline;">
+    <img src="img/icon.png" height="100%" alt="Entrega 0Km">
+  </div>
+</div>
+
+<ion-pane>  
+<ion-content padding="true">
+<div ng-controller="FormaCtrl" style="margin-top:36px;">
+  <div class="row">
+    <div class="col col-80 col-offset-10" style="max-height: 600px; overflow: hidden;" >
+      <div class="item item-body">
+        
+        <div class="row">
+          <div class="col col-100">
+            <button class="button button-block button-positive icon ion-android-camera" ng-click="takePhoto()"> Camara</button>
+            <button class="button button-block button-positive icon ion-image" ng-click="choosePhoto()">Galeria</button>
+          </div>
+        </div>
+        
+        <img class="full-image" src="img/icon.png" ng-src="{{imgURI}}">
+      
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+<div id="info">
+<form>
+<ion-list>
+  <h4>Asesor de Entrega</h4><hr>
+  <label class="item " ng-repeat="v in ASR">
+    <ion-radio name="ASE" type="radio" ng-model="formulario.asesor" ng-value="v">{{v}}</ion-radio>
+  </label>
+</ion-list>
+<hr>
+<label class="item item-input item-stacked-label">
+  <h2 class="input-label">Nombre</h2>
+  <input type="text" placeholder="Nombre" ng-model="formulario.nomape.nom" name="nomape.nom">
+</label>
+<hr>
+<label class="item item-input item-stacked-label">
+  <h2 class="input-label">Apellido</h2>
+  <input type="text" placeholder="Apellido" ng-model="formulario.nomape.ape" name="nomape.ape">
+</label>
+<hr>
+<label class="item item-input item-stacked-label">
+  <span class="input-label">Email</span>
+  <input type="text" placeholder="xxxxxx@xxxx.xxx" ng-model="formulario.email" name="email">
+</label>
+<hr>
+<label class="item item-input item-stacked-label">
+  <span class="input-label">Celular</span>
+  <input type="number" placeholder="Ingrese su Celular" ng-model="formulario.celular" name="celular">
+</label>
+<hr>
+<label class="item item-input item-stacked-label">
+  <span class="input-label">Numero de Chasis</span>
+  <input type="number" placeholder="Numero de Orden" ng-model="formulario.chasis" name="orden">
+</label>
+<hr>
+
+<br><br>
+
+<h4 ng-click="vista()">¿Como calificaria el proceso de compra en General?</h4>
+
+<label ng-repeat="item in Stado" for="item.value">
+  
+    <ion-radio type="radio" name="chch" class="item item-radio" ng-value="item.value" ng-model="formulario.compra">
+      {{item.text}} 
+      
+    </ion-radio>
+      <hr>
+</label>
+
+ 
+<br>
+<br>
+
+<h4>¿Cuál es su nivel de satisfacción con respecto a la atencion brindada por el asesor Comercial?</h4>
+<label ng-repeat="item in Stado" for="item.value">
+  
+    <ion-radio type="radio"  name="grour2" ng-value="item.value" ng-model="formulario.comercial">
+      {{item.text}} 
+      
+      
+    </ion-radio>
+<hr>
+</label>
+
+<br>
+<br>
+
+<h4>¿Cuál es su nivel de satisfacción en relacion a la atencion brindada por el sector Administrativo?</h4>
+<label ng-repeat="item in Stado" for="item.value">
+  
+    <ion-radio type="radio"  name="gro" ng-value="item.value" ng-model="formulario.admin">
+      {{item.text}} 
+      
+    </ion-radio>
+      <hr>
+</label>
+
+<br>
+<br>
+
+<h4>¿Le han ofrecido realizar una prueba de Manejo?</h4>
+<label ng-repeat="item in Sino" for="item.value">
+  
+  <ion-radio type="radio"  name="g" ng-value="item.value" ng-model="formulario.manejo">
+    {{item.text}} 
+    
+  </ion-radio>
+    <hr>
+</label>
+
+<br>
+<br>
+
+
+<h4>¿Se le ha presentado un contacto en la PostVenta?</h4>
+<label ng-repeat="item in Sino" for="item.value">
+  
+  <ion-radio type="radio"  name="group33" ng-value="item.value" ng-model="formulario.postventa">
+    {{item.text}} 
+  
+  </ion-radio>
+    <hr>
+</label>
+
+<br>
+<br>
+
+<h4>¿Cuál es su nivel de satisfacción en relacion a la explicacion de los controles y funcionamiento?</h4>
+  <label ng-repeat="item in Stado" for="item.value">
+  
+    <ion-radio type="radio"  name="ggg" ng-value="item.value" ng-model="formulario.controles">
+    {{item.text}} 
+  
+  </ion-radio>
+    <hr>
+</label>
+
+<br>
+<br>
+
+<h4 >¿Cuál es su nivel de satisfacción en relacion a la limpieza y estado General de su 0Km?</h4>
+  <label ng-repeat="item in Stado" for="item.value">
+  
+    <ion-radio type="radio"  name="frer" ng-value="item.value" ng-model="formulario.limpieza">
+    {{item.text}} 
+  
+    </ion-radio>
+    <hr>
+  </label>
+
+  <br><br>
+
+  <h4>¿Recomendaria y volveria a comprar en Auto Haus?</h4>
+  <label ng-repeat="item in Sino" for="item.value">
+  
+    <ion-radio type="radio"  name="fed" ng-value="item.value" ng-model="formulario.entrega">
+    {{item.text}} 
+  
+    </ion-radio>
+    <hr>
+  </label>
+
+<br><br>
+<label class="item item-input item-floating-label">
+  <span class="input-label">Gracias por tu comentario</span>
+  <textarea placeholder="Dejanos tu Comentario" rows="5" ng-model="formulario.msj" name="msj" ></textarea>
+</label>    
+<br><br>
+<ion-checkbox ng-model="Compartir" ng-change="vista()" class="button-bar"> Compartir en facebook</ion-checkbox> 
+<br>
+<button class="button button-block button-balanced icon ion-checkmark" ng-click="save()">Enviar</button>
+</form> 
+</div>
+</div>
+</ion-content>
+</ion-pane>
+
+</body>
+</html>

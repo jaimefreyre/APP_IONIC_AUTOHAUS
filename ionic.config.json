@@ -1,0 +1,22 @@
+{
+  "name": "AutoHaus.Volkswagen",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic1",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ],
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ],
+  "pro_id": "autohaus1980",
+  "id": "autohaus1980"
+}
